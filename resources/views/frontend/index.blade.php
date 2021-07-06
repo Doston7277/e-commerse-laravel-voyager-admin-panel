@@ -129,7 +129,6 @@
                 </div>
             </div>
             <!-- end trending -->
-
             <!-- our brand -->
             <div class="brand">
                 <div class="container">
@@ -145,35 +144,19 @@
             </div>
             <div class="container-fluid">
                 <div class="brand-bg">
+                        {{ $t = 0 }}
                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="brand-box">
-                                <i><img src="icon/p1.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
+                        @foreach( $products as $product )
+                            @if($t++ < 4)
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                                <div class="brand-box">
+                                    <i><img src="{{ asset('storage/' . $product['image']) }}"/></i>
+                                    <h3>{{ $product['name'] }}</h3>
+                                    <span>${{ $product['price2'] }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="brand-box">
-                                <i><img src="icon/p2.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="brand-box">
-                                <i><img src="icon/p3.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="brand-box">
-                                <i><img src="icon/p4.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -196,7 +179,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 padddd">
-                            <form class="main_form">
+                            <form class="main_form" action="send-message" method="post">
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <input class="form-control" placeholder="Name" type="text" name="Name">
