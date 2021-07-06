@@ -30,7 +30,8 @@
                    </div>
                </div>
                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 padddd">
-                <form class="main_form">
+                <form class="main_form" action="send-message" method="post">
+                @csrf
                    <div class="row">
                       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                          <input class="form-control" placeholder="Name" type="text" name="Name">
@@ -45,7 +46,7 @@
                          <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
                       </div>
                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                         <button class="send">Send</button>
+                         <button type="submit" class="send">Send</button>
                       </div>
                    </div>
                 </form>
@@ -54,5 +55,5 @@
          </div>
       </div>
       <!-- end map -->
-    
+
 @endsection

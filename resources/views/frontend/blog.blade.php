@@ -1,55 +1,32 @@
 @extends('frontend.main')
 @section('section')
 
-     <div class="contactus">
-   <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-8 offset-md-2">
-                  <div class="title">
-                     <h2>Blog</h2>
-
-                  </div>
-               </div>
-            </div>
-          </div>
+<div class="contactus">
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-8 offset-md-2">
+              <div class="title">
+                <h2>Blog</h2>
+              </div>
+           </div>
+        </div>
+    </div>
 </div>
 <div class="blog">
   <div class="container">
     <div class="row">
+    @foreach($posts as $post)
        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                    <div class="news-box">
-                        <figure><img src="images/blol.jpg" alt="img" /></figure>
-                        <h3>Best Teble</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                    <div class="news-box">
-                        <figure><img src="images/blog.jpg" alt="img" /></figure>
-                        <h3>Best Teble</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
-                    <div class="news-box">
-                        <figure><img src="images/blog.jpg" alt="img" /></figure>
-                        <h3>Best Teble</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div class="news-box">
-                        <figure><img src="images/blol.jpg" alt="img" /></figure>
-                        <h3>Best Teble</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
+            <div class="news-box">
+                <figure><img src="{{ asset('storage/' . $post['image'] ) }}" alt="img" /></figure>
+                <h3>{{ $post->title }}</h3>
+                <span>{{ $post->created_at->format('m-d-Y') }}</span><span>Comment</span>
+                <p>{{ $post->body }}</p>
+            </div>
+        </div>
+    @endforeach
     </div>
   </div>
 </div>
-     
+
 @endsection
