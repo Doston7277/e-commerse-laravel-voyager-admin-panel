@@ -32,6 +32,8 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+
 </head>
 <!-- body -->
 
@@ -137,10 +139,8 @@
                                                     alt="#" /></a>
                                         </li>
 
-                                        <li>
-                                            <a href="#"><img style="margin-right: 15px;" src="{{ asset('icon/3.png') }}"
-                                                    alt="#" /></a>
-                                        </li>
+                                        <li><a href="/shopping-cart" id="cart"><i class="fa fa-shopping-cart text-dark"></i><span
+                                                    class="badge text-dark">({{ Cart::count() }})</span></a></li>
 
                                         <li>
                                             <button type="button" id="sidebarCollapse">
@@ -158,6 +158,7 @@
                 <!-- end header inner -->
             </header>
             <!-- end header -->
+
 
             @yield('section')
 
@@ -268,6 +269,13 @@
                         icon: image
                     });
                 }
+                (function() {
+
+                    $("#cart").on("click", function() {
+                        $(".shopping-cart").fadeToggle("fast");
+                    });
+
+                })();
                 </script>
                 <!-- google map js -->
                 <script

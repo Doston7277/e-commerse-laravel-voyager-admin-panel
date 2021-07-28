@@ -11,9 +11,11 @@ Route::get('/about', 'ViewController@about');
 Route::get('/blog', 'ViewController@blog');
 Route::get('/contact', 'ViewController@contact');
 Route::get('/product', 'ViewController@product');
+Route::get('/shopping-cart', 'ViewController@shopping_cart');
 Route::get('/product/{id}', 'ViewController@product_det');
 
 Route::post('/comment', 'ProductController@comment');
+Route::post('/store', 'ProductController@store');
 
 
 Route::post('/send-message', [MailController::class,'sendEmail']);

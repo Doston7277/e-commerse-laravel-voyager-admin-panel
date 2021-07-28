@@ -34,10 +34,14 @@
                             leo.
                             <br><span class="stock">2 in stock</span>
                         </p>
-                        <form class="cart" method="post" action="shop-cart.html">
+                        <form class="cart" method="post" action="/store">
+                        @csrf
                             <div class="quantity">
                                 <input step="1" min="1" max="5" name="quantity" value="1" title="Qty"
                                     class="input-text qty text" size="4" type="number">
+                                <input name="product_id" type="text" value="{{ $product_det['id'] }}" hidden>
+                                <input name="product_name" type="text" value="{{ $product_det['name'] }}" hidden>
+                                <input name="product_price" type="text" value="{{ $product_det['price'] }}" hidden>
                             </div>
                             <button type="submit" class="bt_main">Add to cart</button>
                         </form>

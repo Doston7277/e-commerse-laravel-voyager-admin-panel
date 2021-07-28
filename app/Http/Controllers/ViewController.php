@@ -55,7 +55,14 @@ class ViewController extends Controller
         $product = Product::All();
         return view('frontend.product', ['menus' => $menu_item, 'settings' => $setting, 'products' => $product]);
     }
-
+    public function shopping_cart(){
+        $setting = Setting::All();
+        $menu_id = Menu::All()->where('name', 'site');
+        $id = $menu_id['1']['id'];
+        $menu_item = Menu_Item::All()->where('menu_id', $id);
+        $product = Product::All();
+        return view('frontend.shopping-cart', ['menus' => $menu_item, 'settings' => $setting, 'products' => $product]);
+    }
     public function product_det($id){
         $comment = Comment::All()->where('product_id', $id);
         $setting = Setting::All();
